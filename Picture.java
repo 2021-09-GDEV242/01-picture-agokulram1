@@ -9,12 +9,16 @@
  * @author  Michael Kšlling and David J. Barnes
  * @version 2016.02.29
  */
-public class Picture
+public class Picture 
 {
     private Square wall;
     private Square window;
     private Triangle roof;
     private Circle sun;
+    private Circle ball;
+    private Person boy;
+    private Person boy2;
+    private Square chimney;
     private boolean drawn;
 
     /**
@@ -26,6 +30,10 @@ public class Picture
         window = new Square();
         roof = new Triangle();  
         sun = new Circle();
+        boy = new Person();
+        ball = new Circle();
+        boy2 = new Person();
+        chimney = new Square();
         drawn = false;
     }
 
@@ -35,27 +43,47 @@ public class Picture
     public void draw()
     {
         if(!drawn) {
+            ball.moveHorizontal(-200);  
+            ball.moveVertical(175);
+            ball.changeColor("black");
+            ball.changeSize(35);
+            ball.makeVisible();
+            
+            boy2.moveHorizontal(45);
+            boy2.moveVertical(45);
+            boy2.changeSize(100,60);
+            boy2.makeVisible();
+            
+            boy.moveHorizontal(-160);
+            boy.moveVertical(40);
+            boy.changeSize(100,60);                 
+            boy.makeVisible();
+            
             wall.moveHorizontal(-140);
-            wall.moveVertical(20);
+            wall.moveVertical(60);
             wall.changeSize(120);
             wall.makeVisible();
             
             window.changeColor("black");
             window.moveHorizontal(-120);
-            window.moveVertical(40);
+            window.moveVertical(75);
             window.changeSize(40);
             window.makeVisible();
     
             roof.changeSize(60, 180);
             roof.moveHorizontal(20);
-            roof.moveVertical(-60);
+            roof.moveVertical(-10);
             roof.makeVisible();
     
             sun.changeColor("yellow");
             sun.moveHorizontal(100);
-            sun.moveVertical(-40);
+            sun.moveVertical(-50);
             sun.changeSize(80);
             sun.makeVisible();
+            
+            chimney.makeVisible();
+            chimney.moveHorizontal(-65);
+            chimney.changeColor("black");
             drawn = true;
         }
     }
